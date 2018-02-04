@@ -96,7 +96,8 @@ class Migration_Create_ion_auth extends	CI_Migration {
 			$data = array(
 				'ip_address'=> inet_pton('127.0.0.1'),
 				'username'=>'administrator',
-				'password'=>'59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4',
+				// 'password'=>'59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4',
+				'password'=>'59zE6QwGByDHk', 
 				'salt'=>'9462e8eee0',
 				'email'=>'admin@admin.com',
 				'activation_code'=>'',
