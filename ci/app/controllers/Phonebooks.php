@@ -15,6 +15,7 @@ class Phonebooks extends CI_Controller {
 
   }
 
+  /** Display the phonebook entries on a page  */
 	public function index()
 	{
       $this->load->library('Datatables');
@@ -26,6 +27,7 @@ class Phonebooks extends CI_Controller {
                 ->generate();
 
 	}
+  /** add the phonebook entry */
   public function add()
   {
     if( $this->phonebook_model->add() )
@@ -33,6 +35,7 @@ class Phonebooks extends CI_Controller {
     else
       echo 'Failure!';
   }
+  /** edit the phonebook entry */
   public function edit()
   {
     if( $this->phonebook_model->edit() )
@@ -40,6 +43,7 @@ class Phonebooks extends CI_Controller {
     else
       echo 'Failure!';
   }
+  /** delete the phonebook entry */
   public function delete()
   {
     if( $this->phonebook_model->delete( ) )
