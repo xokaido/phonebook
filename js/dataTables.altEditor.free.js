@@ -295,10 +295,14 @@
          var dt = this.s.dt;
 
          var data = [];
+         var xdata = {};
 
          $('form[name="altEditor-form"] input').each(function( i )
          {
             data.push( $(this).val() );
+            let xname = $(this).attr( 'name' );
+            data.push( $(this).val() );
+            xdata[ xname.toLowerCase() ] = $(this).val();
          });        
 
          $('#altEditor-modal .modal-body .alert').remove();
@@ -307,7 +311,7 @@
              <strong>Success!</strong> This record has been updated.\
            </div>';
 
-           $.post( '/phonebooks/edit/', { data }, function( r ) {
+           $.post( '/products/edit/', { data: xdata }, function( r ) {
               $('#altEditor-modal .modal-body').append(message);
               dt.ajax.reload();
            });
@@ -383,7 +387,7 @@
             data.push( $(this).val() );
          });        
          
-         $.post( '/phonebooks/delete/', { data }, function( r ) {
+         $.post( '/products/delete/', { data }, function( r ) {
             $('#altEditor-modal .modal-body').append(message);
             dt.ajax.reload();
          });
@@ -436,15 +440,17 @@
 
        _addRowData: function()
        {
-        console.log('add row')
          var that = this;
          var dt = this.s.dt;
 
          var data = [];
+         var xdata = {};
 
          $('form[name="altEditor-form"] input').each(function( i )
          {
+            let xname = $(this).attr( 'name' );
             data.push( $(this).val() );
+            xdata[ xname.toLowerCase() ] = $(this).val();
          });     
 
          $('#altEditor-modal .modal-body .alert').remove();
@@ -453,7 +459,7 @@
            <strong>Success!</strong> This record has been added.\
          </div>';
 
-        $.post( '/phonebooks/add', { data }, function( r ) {
+        $.post( '/products/add', { data: xdata }, function( r ) {
           console.log( r );
 
            $('#altEditor-modal .modal-body').append(message);
