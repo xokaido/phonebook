@@ -31,10 +31,20 @@ $(document).ready( function() {
 
 
   });
+  $(".xok").on( 'click', function( ) 
+  {
+      let new_image = $(this).parent().find( 'input' ).val( );
+      if( new_image.length > 0 )
+        $(this).attr( 'src', new_image );
+  });
+
 
 
 });
 </script>
+<style>
+  .img-thumbnail { cursor: pointer; }
+</style>
 <body>
 <div class="container-fluid">
 
