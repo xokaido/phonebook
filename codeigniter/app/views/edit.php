@@ -31,10 +31,19 @@ $(document).ready( function() {
 
 
   });
+  $(".xok").on( 'click', function( ) 
+  {
+      let new_image = $(this).parent().find( 'input' ).val( );
+      if( new_image.length > 0 )
+        $(this).attr( 'src', new_image );
+  });
 
 
 });
 </script>
+<style>
+  .img-thumbnail { cursor: pointer; }
+</style>
 <body>
 <div class="container-fluid">
 
@@ -107,21 +116,7 @@ $(document).ready( function() {
                 </div>
                 <div id="images" class="tab-pane fade">
                   <h3>Item Images</h3>
-
-                  <div class="col-sm-11 col-md-11 col-lg-11">
-                      <?=display_tab( $tabs[ 'images' ], $product );?>
-                  </div>
-                  <div class="col-sm-1 col-md-1 col-lg-1 pull-left">
-                      <img class="img-thumbnail"src="/images/product.png" style="width:150px;"/>
-                      <div style="clear:both;">&nbsp;</div>
-                      <img class="img-thumbnail"src="/images/product.png" style="width:150px;"/>
-                      <div style="clear:both;">&nbsp;</div>
-                      <img class="img-thumbnail"src="/images/product.png" style="width:150px;"/>
-                      <div style="clear:both;">&nbsp;</div>
-                      <img class="img-thumbnail"src="/images/product.png" style="width:150px;"/>
-                      <div style="clear:both;">&nbsp;</div>
-                      <img class="img-thumbnail"src="/images/product.png" style="width:150px;"/>
-                  </div>
+                  <?=display_tab( $tabs[ 'images' ], $product );?>
                 </div>
                 <div id="electric" class="tab-pane fade">
                   <h3>Item Electrics</h3>

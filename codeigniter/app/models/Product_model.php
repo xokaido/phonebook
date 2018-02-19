@@ -17,6 +17,9 @@ class Product_model extends CI_Model
       if( !empty( $array ) )
         $this->data = $array;
 
+      if( isset( $this->data[ 'id' ] ) )
+        unset( $this->data[ 'id' ] );
+      
       $this->db->set( $this->data );
       if( $this->db->insert( 'products' ) )
         return true;

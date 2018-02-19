@@ -53,11 +53,11 @@ class Home extends CI_Controller {
                                   [ 'name' => 'shelflife', 'display' => 'ShelfLife' ]
                       ],
                       'images' => [
-                                  [ 'name' => 'itemmainimagelink', 'display' => 'ItemMainImageLink' ],
-                                  [ 'name' => 'itemimagelink2', 'display' => 'ItemImageLink2' ],
-                                  [ 'name' => 'itemimagelink3', 'display' => 'ItemImageLink3' ],
-                                  [ 'name' => 'itemimagelink4', 'display' => 'ItemImageLink4' ],
-                                  [ 'name' => 'itemimagelink5', 'display' => 'ItemImageLink5' ]
+                                  [ 'name' => 'itemmainimagelink', 'display' => 'ItemMainImageLink', 'html' => '<img class="xok img-thumbnail" src="/images/product.png" style="width:100px;"/>' ],
+                                  [ 'name' => 'itemimagelink2', 'display' => 'ItemImageLink2', 'html' => '<img class="xok img-thumbnail" src="/images/product.png" style="width:100px;"/>' ],
+                                  [ 'name' => 'itemimagelink3', 'display' => 'ItemImageLink3', 'html' => '<img class="xok img-thumbnail" src="/images/product.png" style="width:100px;"/>' ],
+                                  [ 'name' => 'itemimagelink4', 'display' => 'ItemImageLink4', 'html' => '<img class="xok img-thumbnail" src="/images/product.png" style="width:100px;"/>' ],
+                                  [ 'name' => 'itemimagelink5', 'display' => 'ItemImageLink5', 'html' => '<img class="xok img-thumbnail" src="/images/product.png" style="width:100px;"/>' ]
                       ],
                       'electric' => [
                                   [ 'name' => 'electroniccomponent', 'display' => 'ElectronicComponent' ],

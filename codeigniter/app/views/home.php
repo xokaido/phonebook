@@ -10,8 +10,8 @@ function add_checkbox(data, type, row, meta )
   return '<input type="checkbox" />'; 
 }
 pages['multi'] = [
-                    {"data": "id", "orderable": false, "searchable": false, "render": add_checkbox },
-                    {"data": "id", "visible": false },
+                    {"data": "glass", "orderable": false, "searchable": false, "render": add_checkbox },
+                    {"data": "id", "searchable": false, "visible": false },
                     {"data": "brand", "render": make_link },
                     {"data": "sku_model" , "render": make_link },
                     {"data": "itemname" , "render": make_link },
@@ -31,9 +31,10 @@ $(document).ready( function() {
   var table = $('#example').DataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": { "url":  "/products/", "type": "POST" },
+            "ajax": { "url":  "/products/" , "type": "POST" },
             "columns": pages.multi,
             "order": [[ 1, 'asc' ]],
+            select: 'single',
     } );
    // Handle click on checkbox
    $('#example tbody').on('click', 'input[type="checkbox"]', function(e){

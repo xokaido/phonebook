@@ -23,44 +23,31 @@ class Products extends CI_Controller {
 	public function index()
 	{
       $this->load->library('Datatables');
-
       echo $this->datatables
-                ->select( "*" )
+                ->select( "glass, id, brand, sku_model, itemname, itemupc, itemmainimagelink, singleitemcostusd, itemcasepack, singleitemretailusd, singleitemmapusd, amazonasin, amazonlivelink" )
                 ->from( "products")
-                // ->where('user_id', $this->user->id )
                 ->generate();
 	}
   public function add()
   {
-
     if( $this->product_model->add() )
-      echo 'Success!';
+      echo $this->json( 'Success! The product information has been ADDED.' );
     else
-      echo 'Failure!';
-  }
-  public function xok()
-  {
-    $this->output->set_status_header( 503 );
-    echo json_encode( $this->input->post( ) );
+      echo $this->json( 'Failure!', 503 );
   }
   public function edit()
   {
     if( $this->product_model->edit() )
-      $this->send_message( 'Success!' );
+      echo $this->json( 'Success! The product information has been UPDATED.' );
     else
-      $this->send_message( 'Could not update the record!', 503 );
+      echo $this->json( 'Could not update the record!', 503 );
   }
   public function delete()
   {
     if( $this->product_model->delete( ) )
-      echo 'Success!';
+      echo $this->json( 'Success! The product information has been DELETED.' );
     else
-      echo 'Failure!';
-  }
-  private function send_message( $message, $status = 200 )
-  {
-      $this->output->set_status_header( $status );
-      echo json_encode( [ 'message' => $message ]);
+      echo $this->json( 'Failure!', 503 );
   }
   public function export()
   {
@@ -98,9 +85,7 @@ class Products extends CI_Controller {
           $data = [ 'upload_data' => $this->upload->data() ];
 
       if( isset( $data[ 'error' ] ) && !empty( $data[ 'error' ] ) ) 
-      {
-          echo "Alerting error!";
-      }
+          echo $this->json( $data[ 'error' ], 503 );
       else
       {
           $uploaded_csv_file = $data[ 'upload_data' ][ 'full_path' ];
@@ -117,8 +102,14 @@ class Products extends CI_Controller {
               else
                   $this->product_model->add( $record );
           }
+          redirect( '/home' );
 
       }
+  }
+  public function json( $message = '', $status = 200 )
+  {
+    $this->output->set_status_header( $status );
+    return json_encode([ 'message' => $message ]);
   }
 
 }
