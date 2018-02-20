@@ -16,7 +16,7 @@ pages['multi'] = [
                     {"data": "sku_model" , "render": make_link },
                     {"data": "itemname" , "render": make_link },
                     {"data": "itemupc" },
-                    {"data": "itemmainimagelink" },
+                    // {"data": "itemmainimagelink" },
                     {"data": "singleitemcostusd" },
                     {"data": "itemcasepack" },
                     {"data": "singleitemretailusd" },
@@ -35,6 +35,7 @@ $(document).ready( function() {
             "columns": pages.multi,
             "order": [[ 1, 'asc' ]],
             select: 'single',
+            fixedColumns: true
     } );
    // Handle click on checkbox
    $('#example tbody').on('click', 'input[type="checkbox"]', function(e){

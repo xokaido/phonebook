@@ -16,7 +16,7 @@ if(  $disabled ) : ?>
 
 <?php else: ?>
     <div class="form-group">
-      <div class="col-sm-3 col-md-3 col-lg-3 text-right" style="padding-top:7px;">
+      <div class="col-sm-2 col-md-2 col-lg-2" style="padding-top:7px;">
         <label for="<?=$v['display'];?>"><?=$v['display'];?>:</label>
       </div>
       <div class="col-sm-7 col-md-7 col-lg-7">

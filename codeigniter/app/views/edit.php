@@ -65,7 +65,7 @@ $(document).ready( function() {
       </div>
 
       <div class="row marketing">
-        <a href="/" class="btn btn-default">Go Back</a><br><br>
+        <a href="/" class="btn btn-default" style="margin-left: 16px;">Go Back</a><br><br>
 
         <div id="message" class="hidden">
           <div class="alert alert-success alert-dismissable">
@@ -96,7 +96,7 @@ $(document).ready( function() {
                 <div id="basic" class="tab-pane fade in active">
                   <h3>Basic Configuration</h3>
                   <div class="col-sm-2 col-md-2 col-lg-2" style="padding-top:7px;">
-                    <a href="#">
+                    <a href="#" class="pull-right">
                       <img
                         src="<?=( $product->itemmainimagelink ? $product->itemmainimagelink : '/images/product.png');?>"
                         class="img-thumbnail"
