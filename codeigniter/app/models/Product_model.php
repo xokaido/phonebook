@@ -38,8 +38,12 @@ class Product_model extends CI_Model
   {
       if( !empty( $id ) )
         $this->data[ 'id' ] = $id;
-      $this->db->where( 'id', $this->data['id'] );
-      if( $this->db->delete([ 'products' ]) )
+      if( is_array( $this->data[ 'id' ] ) )
+        $this->db->where_in( 'id', $this->data['id'] );
+      else
+        $this->db->where( 'id', $this->data['id'] );
+
+      if( $this->db->delete( 'products' ) )
         return true;
       return false;
   }

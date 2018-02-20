@@ -5,9 +5,9 @@ class Home extends CI_Controller {
   private $tabs = [  'multi' => [
                                   [ 'name' => 'id', 'display' => 'id' ],
                                   [ 'name' => 'brand', 'display' => 'Brand' ],
-                                  [ 'name' => 'sku_model', 'display' => 'SKU_model' ],
-                                  [ 'name' => 'itemname', 'display' => 'ItemName' ],
-                                  [ 'name' => 'itemupc', 'display' => 'ItemUPC' ],
+                                  [ 'name' => 'sku_model', 'display' => 'SKU' ],
+                                  [ 'name' => 'itemname', 'display' => 'Name' ],
+                                  [ 'name' => 'itemupc', 'display' => 'UPC' ],
                                   [ 'name' => 'itemmainimagelink', 'display' => 'ItemMainImageLink' ],
                                   [ 'name' => 'singleitemcostusd', 'display' => 'SingleItemCostUSD' ],
                                   [ 'name' => 'itemcasepack', 'display' => 'ItemCasePack' ],

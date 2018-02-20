@@ -73,6 +73,25 @@ $(document).ready( function() {
    $('#example').on('click', 'tbody td, thead th:first-child', function(e){
       $(this).parent().find('input[type="checkbox"]').trigger('click');
    });
+  $('#delete').on('click', function(){
+    if( rows_selected.length < 1 )
+    {
+      alert( "Please select rows to delete!" );
+      return false;
+    }
+
+    var poster = '';
+    for( let id in rows_selected )
+      poster += rows_selected[ id ] + ',';
+
+    $.post( '/products/delete', { ids: poster.replace( /,$/, '' ) }, function( r ) {
+
+      table.ajax.reload();
+      console.log( r );
+
+    });
+
+  });
 
    // Handle click on "Select all" control
    $('thead input[name="select_all"]', table.table().container()).on('click', function(e)
@@ -119,6 +138,9 @@ $(document).ready( function() {
 
       <div class="btn-group">
             <a href="/home/create/" class="btn btn-primary">Add New Product</a>
+            <button id="delete" class="btn btn-primary" style="margin-left: 10px;">
+              Delete Products&nbsp;&nbsp;<i class="fa fa-times"></i>
+            </button>
             <button id="exportCSV" class="btn btn-primary" style="margin-left: 10px;">
               CSV &nbsp;&nbsp;<i class="fa fa-download"></i>
             </button>

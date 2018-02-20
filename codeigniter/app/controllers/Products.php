@@ -44,7 +44,8 @@ class Products extends CI_Controller {
   }
   public function delete()
   {
-    if( $this->product_model->delete( ) )
+    $ids = explode( ',', $this->input->post( 'ids' ) );
+    if( $this->product_model->delete( $ids ) )
       echo $this->json( 'Success! The product information has been DELETED.' );
     else
       echo $this->json( 'Failure!', 503 );
