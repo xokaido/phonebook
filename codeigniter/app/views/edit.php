@@ -139,7 +139,7 @@ $(document).ready( function() {
           </div>
           <div class="row">&nbsp;</div>
           <div class="row">
-            <button type="submit" id="save" class="btn btn-success">Save Changes</button>
+            <button type="submit" id="save" class="btn btn-success" style="margin-left: 30px;">Save Changes</button>
           </div>
         </form>
 
